@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1739906280,
+	"version": 1740306366,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -16,6 +16,8 @@
 		"images/settingsscreenbuttonimg-sheet0.png",
 		"images/savebutton-sheet0.png",
 		"images/earthdescline-sheet0.png",
+		"images/rebirthscreenbuttonimg-sheet0.png",
+		"images/test-sheet0.png",
 		"media/dick_walter_-_cool_vibes_(musmore.org).m4a",
 		"media/dick_walter_-_cool_vibes_(musmore.org).ogg",
 		"icon-16.png",

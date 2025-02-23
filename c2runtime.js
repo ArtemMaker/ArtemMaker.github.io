@@ -21889,10 +21889,10 @@ cr.behaviors.scrollto = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
-	cr.plugins_.Sprite,
+	cr.plugins_.Text,
 	cr.plugins_.Touch,
 	cr.plugins_.sliderbar,
-	cr.plugins_.Text,
+	cr.plugins_.Sprite,
 	cr.behaviors.Rotate,
 	cr.behaviors.scrollto,
 	cr.system_object.prototype.cnds.OnLayoutStart,
@@ -21905,7 +21905,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Text.prototype.acts.SetText,
 	cr.system_object.prototype.exps["int"],
 	cr.plugins_.Sprite.prototype.acts.SetPos,
-	cr.plugins_.Sprite.prototype.acts.SetOpacity,
 	cr.plugins_.Sprite.prototype.cnds.CompareInstanceVar,
 	cr.plugins_.Sprite.prototype.acts.SubInstanceVar,
 	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
