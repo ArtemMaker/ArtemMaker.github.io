@@ -21698,6 +21698,51 @@ cr.plugins_.sliderbar = function(runtime)
 }());
 ;
 ;
+cr.behaviors.NoSave = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.NoSave.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.myProperty = this.properties[0];
+	};
+	behinstProto.onDestroy = function ()
+	{
+	};
+	behinstProto.tick = function ()
+	{
+		var dt = this.runtime.getDt(this.inst);
+	};
+	function Cnds() {};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	behaviorProto.acts = new Acts();
+	function Exps() {};
+	behaviorProto.exps = new Exps();
+}());
+;
+;
 cr.behaviors.Rotate = function(runtime)
 {
 	this.runtime = runtime;
@@ -21894,6 +21939,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.sliderbar,
 	cr.plugins_.Sprite,
 	cr.behaviors.Rotate,
+	cr.behaviors.NoSave,
 	cr.behaviors.scrollto,
 	cr.system_object.prototype.cnds.OnLayoutStart,
 	cr.plugins_.Audio.prototype.acts.Play,
@@ -21902,12 +21948,13 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetSize,
 	cr.system_object.prototype.acts.Wait,
 	cr.system_object.prototype.cnds.EveryTick,
+	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
+	cr.system_object.prototype.exps.round,
 	cr.plugins_.Text.prototype.acts.SetText,
 	cr.system_object.prototype.exps["int"],
 	cr.plugins_.Sprite.prototype.acts.SetPos,
 	cr.plugins_.Sprite.prototype.cnds.CompareInstanceVar,
 	cr.plugins_.Sprite.prototype.acts.SubInstanceVar,
-	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
 	cr.system_object.prototype.acts.SaveState,
 	cr.system_object.prototype.acts.LoadState,
 	cr.system_object.prototype.cnds.Every,
